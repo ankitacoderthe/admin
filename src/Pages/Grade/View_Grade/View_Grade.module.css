@@ -1,0 +1,40 @@
+.table_container {
+  display: flex;
+  justify-content: space-between;
+}
+.table_container_child {
+  width: 48%;
+}
+.table_heading {
+  font-weight: 600;
+  color: var(--bg);
+  margin: 20px 0;
+}
+
+.header{
+  height: 45px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  background: #FCF6AB;
+  border-radius: var(--br);
+  color: var(--bg);
+  font-weight: 500;
+}
+
+
+.grade_btn{
+  width: auto;
+  padding: 0 20px;
+  height: 40px;
+  color: white;
+  background: var(--bg);
+  border-radius: var(--br);
+  border: none;
+      float: right;
+    margin: 30px 0 20px;
+}
+
+
