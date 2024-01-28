@@ -10,9 +10,8 @@ import DatePicker from "react-multi-date-picker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios'
 import Cookies from 'universal-cookie'
-import { baseURL } from '../../util'
+import { url } from '../../util'
 const Filter = (props) => {
-  const url=baseURL
 const [month,setMonth]=useState(null)
   const cookies = new Cookies();
   const [View, setView] = useState(false)

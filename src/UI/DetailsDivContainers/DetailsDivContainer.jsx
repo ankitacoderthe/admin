@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import DetailsDiv from '../../Components/DetailsDiv/DetailsDiv'
 import classes from './DetailsDivContainer.module.css'
-
+import React from 'react'
 const DetailsDivContainer = ({data}) => {
   return (
     <div className={classes.container}>

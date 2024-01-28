@@ -12,7 +12,11 @@
     font-size: 13px;
     font-weight: 400;
 }
-
+.btn_container{
+    display: flex;
+   
+    justify-content: space-between;
+}
 .heading_btn{
     width: max-content;
     padding: 0 30px;

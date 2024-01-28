@@ -10,10 +10,9 @@ import DatePicker from "react-multi-date-picker";
 // import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios'
 import Cookies from 'universal-cookie'
-import { baseURL } from '../../util'
+import { url } from '../../util'
 import moment from 'moment'
 const Filter = (props) => {
-  const url=baseURL
 const [month,setMonth]=useState(null)
   const cookies = new Cookies();
   const [View, setView] = useState(false)
@@ -65,7 +64,7 @@ const [month,setMonth]=useState(null)
   const [state, setstate] = useState('')
  const changeMonth=(monthSelected)=>{
 setMonth(monthSelected)
-
+console.log(monthSelected.month.number-1)
   props.changeMonth(monthSelected.month.number-1)
   props.changeYear(monthSelected.year)
  }

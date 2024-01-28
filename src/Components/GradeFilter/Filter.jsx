@@ -7,10 +7,9 @@ import { useEffect } from 'react'
 // Importing Datepicker
 import DatePicker from "react-datepicker";
 // import DatePicker from "react-multi-date-picker";
-import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios'
 import Cookies from 'universal-cookie'
-import { baseURL } from '../../util'
+import { url } from '../../util'
 
 const Filter = (props) => {
   const cookies = new Cookies();
@@ -26,7 +25,7 @@ const Filter = (props) => {
       const fetching=async()=>{
         const token = cookies.get('admin_token')
         const headers={"Authorization":"Bearer "+token}
-        axios.get(baseURL+"api/getRoles",{headers}).then((response)=>{
+        axios.get(url+"api/getRoles",{headers}).then((response)=>{
           setDesignationOptions(response.data)
         })
       }
@@ -44,7 +43,7 @@ const Filter = (props) => {
   if(tableData?.length>0){
     tableData.forEach((element)=>{
     let index=tableData.findIndex((ele)=>{
-     return ele.empID===element.empID
+      return ele.empID===element.empID
     })
     if(index===count){
       newArray.push(element)
@@ -101,16 +100,16 @@ const Filter = (props) => {
    
     props.changeByEmployee(state.query)
   }
+console.log(startDate?.toDate?.().toString())
   return (
 
     <div className={classes.filter_box}>
       <form  className={classes.input_div}>
         <label htmlFor="Employees">Employees</label>
         <input value={state.query} onChange={handleChange} type="text" id='Employees' placeholder='Emp ID , Employee Name..' />
-<BiRefresh></BiRefresh>
         <img className={classes.img1} src={mag} alt="" onClick={(e)=>clickToChangeEmployee()} />
         <div className={`${classes.search_table} ${View === true ? classes.visible : ''}`}>
-          <MainTable  view_btn={true} searchFunc={changeByEmployee} Inp={false} type={'button'} Btn={false} headings={tableHeadings} data={state.list === undefined ? tableData : state.list} keys={['employee_name', 'empID']} />
+          <MainTable  view_btn={true} searchFunc={changeByEmployee} type={'button'} Inp={false} Btn={false} headings={tableHeadings} data={state.list === undefined ? tableData : state.list} keys={['employee_name', 'empID']} />
         </div>
       </form>
 

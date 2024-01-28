@@ -18,12 +18,12 @@
 }
 
 .table thead {
-
   background: #fcf6ab;
   color: #96503f;
   position: sticky;
   top: 0;
   left: 0;
+  
 }
 .table thead tr {
   height: 50px;

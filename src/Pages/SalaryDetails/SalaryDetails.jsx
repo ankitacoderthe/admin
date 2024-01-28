@@ -3,7 +3,7 @@ import Heading from '../../Components/Heading/Heading'
 import TileContainer from '../../UI/TileContainer/TileContainer'
 import DropDownFilter from '../../Components/DropDownFilter/DropDownFilter'
 import Filter from '../../Components/FilterWithMonthPicker/Filter'
-
+import classes from './SalaryDetails.module.css'
 import Pagination from '../../Components/Pagination/Pagination'
 import MainTable from '../../Components/MainTable/MainTable'
 import DownloadSalarySlip from '../../Components/AllModals/DownloadSalarySlip'
@@ -70,6 +70,7 @@ const uploadCommissionData=(data)=>{
      }
     })
 }
+ 
   const changeDate=(data)=>{
    
     setDate(data)
@@ -169,7 +170,7 @@ const selectEntries=(data)=>{
     const listSalary=(Salary)=>{
       Salary.forEach((data)=>{
         data.month_days=moment([data.year,data.month]).daysInMonth()
-        data.min_wages_as_per_rule=data.min_wages_as_per_rule!==null?data.min_wages_as_per_rule.toFixed(2):data.base_salary.toFixed(2)
+        data.min_wages_as_per_rule=data.min_wages_as_per_rule!==null&&data.base_salary<data.min_wages_as_per_rule?data.min_wages_as_per_rule.toFixed(2):data.base_salary.toFixed(2)
       })
       setSalary(Salary)
     }
@@ -220,18 +221,20 @@ const selectEntries=(data)=>{
   return (
     <React.Fragment>
       <DownloadSalarySlip value={newval} setval={setNewVal} Obj={obj} />
+      <div className={classes.container}>
       <Heading heading={'Salary Details'} />
+      <NewInpFile func={uploadCommissionData}/>
+      </div>
       <ToastContainer></ToastContainer>
       <TileContainer Data={TileData} />
       <DropDownFilter title1={'Floor'} title2={'Location'} selectByFloor={selectByFloor}  selectBylocation={selectBylocation}    />
       <Filter date={date}  data={salary} changeYear={setYearSelected}  changeMonth={setMonth}  changeByDesignation={changeByDesignation} changeByEmployee={changeByEmployee}/>
       <br/>
       <br />
-      <NewInpFile func={uploadCommissionData}/>
+     
       {/* <input type="file" name="commisionData" id="commisionData" onChange={(e)=>uploadCommissionData(e)} accept='.csv'/>
       <button onClick={uploadFile}>Upload</button> */}
-      <br />
-      <br />
+     
       <MainTable func={changeModalState} data={salary} height={true} Lnk={true} headings={tableHeadings} keys={tableKeys} link1={false} link2={'/salary_certificate'} t1={'Make salary slip'} t2={'Make certificate'} link3={'false'} t3={'Download salary slip'} link4={'/overall_salary_details'} t4={'View Salary Details'} App_Btn={true} />
       <Pagination selectEntries={selectEntries} selectPage={selectPage} offset={offset} limit={limit} total={total} />
     </React.Fragment>

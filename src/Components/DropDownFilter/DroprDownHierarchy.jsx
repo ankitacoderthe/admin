@@ -4,7 +4,7 @@ import Img from '../../assets/shop.png'
 import { Link } from 'react-router-dom'
 import useHttp from '../../Hooks/use-http'
 import { useEffect, useState } from 'react'
-import { baseURL } from '../../util'
+import { url } from '../../util'
 
 const DropDownFilter = (props) => {
 
@@ -37,9 +37,9 @@ const DropDownFilter = (props) => {
     const listCategories = (Categories) => {
       setCategories(Categories)
     }
-    fetchlocations({ url: baseURL+'api/getLocations' }, listlocations)
-    fetchFloors({ url: baseURL+'api/getFloors' }, listFloors)
-    fetchCategories({ url: baseURL+'api/getCategories' }, listCategories)
+    fetchlocations({ url: url+'api/getLocations' }, listlocations)
+    fetchFloors({ url: url+'api/getFloors' }, listFloors)
+    fetchCategories({ url: url+'api/getCategories' }, listCategories)
   }, [])
   const selectBylocation = (data) => {
     setSelectedlocation(data)

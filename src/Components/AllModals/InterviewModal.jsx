@@ -5,10 +5,9 @@ import Close from '../../assets/close.png'
 import axios from 'axios'
 import Cookies from 'universal-cookie'
 import { useNavigate } from 'react-router-dom'
-import { baseURL } from '../../util'
+import { url } from '../../util'
 const InterviewModal = (props) => {
     const navigate=useNavigate()
-   
 const cookies=new Cookies()
 const token = cookies.get('admin_token')
     const headers = { "Authorization": "Bearer " + token }
@@ -24,16 +23,16 @@ const token = cookies.get('admin_token')
         return () => { }
     }, [props.value, props.Obj])
 function makePermanent(){
-    axios.patch(baseURL+'api/updateInterview/'+props.Obj.id,{
+    axios.patch(url+'api/updateInterview/'+props.Obj.id,{
         status:"Permanent"
     },{headers}).then((response)=>{
 if(response){
-    navigate('/add_employee')
+    navigate('/add_employee/'+props.Obj.id)
 }
     })
 }
 function reject(){
-    axios.patch(baseURL+'api/updateInterview/'+props.Obj.id,{
+    axios.patch(url+'api/updateInterview/'+props.Obj.id,{
         status:"Reject"
     },{headers}).then((response)=>{
 if(response){
@@ -42,11 +41,11 @@ if(response){
     })
 }
 function makeTrial(){
-    axios.patch(baseURL+'api/updateInterview/'+props.Obj.id,{
+    axios.patch(url+'api/updateInterview/'+props.Obj.id,{
         status:"Trial"
     },{headers}).then((response)=>{
 if(response){
-    navigate('/add_employee')
+    navigate('/add_employee/'+props.Obj.id)
 }
     })
 }

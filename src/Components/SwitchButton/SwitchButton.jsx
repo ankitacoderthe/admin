@@ -3,13 +3,13 @@ import classes from "./SwitchButton.module.css";
 
 const SwitchButton = (props) => {
 
-   
+    // const [isTrue, setIsTrue] = useState(false)
 
     const toggleSwitch = () => {
         //Setter Function ( use your set function here ) 
         props.func(!props.isTrue)
 
-        
+        // setIsTrue(!isTrue)
     }
 
     return (

@@ -91,6 +91,7 @@ import TotalPermanent from './Pages/Interviews/TotalPermanent';
 import AddEmployeeAfterInterview from "./Pages/AddEmployeeAfterInterview/AddEmployee.jsx"
 import UpdateInterview from './Pages/Interviews/UpdateInteview';
 import UploadAttendance from './Pages/UploadAttendance/UploadAttendance.jsx';
+window.React = React
 const App = () => {
 
   const urlPath = useLocation()

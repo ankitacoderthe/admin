@@ -10,7 +10,7 @@ const FullCal = (props) => {
   const calendarRef = useRef(null);
   const [date, setDate] = useState(null)
 
-  
+ 
 
   const renderTileColor = (event) => {
     switch (event.backgroundColor) {
@@ -51,11 +51,11 @@ const FullCal = (props) => {
   }
 useEffect(() => {
   const calendarApi = calendarRef.current.getApi();
+  
   let from_date = moment([props.year,props.month]).startOf('month').format("YYYY-MM-DD")
-     let end_date = moment([props.year,props.month]).endOf('month').format("YYYY-MM-DD")
+    console.log("from_date",from_date)
   setDate(from_date)
-  console.log(props.year)
-    calendarApi.gotoDate(from_date);
+    calendarApi.gotoDate(from_date)
     
 }, [])
 

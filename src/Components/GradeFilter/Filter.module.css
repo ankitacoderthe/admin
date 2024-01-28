@@ -19,11 +19,6 @@
   font-weight: 500;
   color: #96503f;
 }
-.react-datepicker {
-  float: left;
-  position: absolute;
-  z-index: 50;
-}
 .input_div input,
 .input_div select {
   height: 47px;
@@ -78,9 +73,15 @@
 .search_table::-webkit-scrollbar {
   display: none;
 }
-
+.react-datepicker {
+  float: left;
+  position: absolute;
+  z-index: 50;
+}
 .dp_inp input{
   width: 100% !important;
+
+
 }
 
 @media screen and (max-width: 1000px) {

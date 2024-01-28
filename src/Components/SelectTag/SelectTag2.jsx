@@ -21,7 +21,7 @@ useEffect(()=>{
     const optionData = props.data;
 
     return (
-        <div className={classes.select_div}>
+        <div className={`${classes.select_div}  ${classes.new_select_div}`}>
             {props.img && <img src={props.img} className={classes.select_img} alt="" />}
             {optionData ?
                 <select value={props.value}  required={props?.required} name='select'  className={classes.select} onChange={(e)=>valHandler(e)} id={props.select_id ? props.select_id :''}>

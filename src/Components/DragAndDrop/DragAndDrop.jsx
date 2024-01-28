@@ -41,7 +41,7 @@ const {getRootProps, getInputProps, isDragActive} = useDropzone({
               {photo.map((upFile)=>{
                 return(
                   <div className={classes.dnd}>
-                   <img src={upFile.preview}  alt="preview" height={'150px'} width={'150px'}/>
+                    <img src={upFile.preview}  alt="preview" height={'150px'} width={'150px'}/>
                   </div>
                 )
               })}

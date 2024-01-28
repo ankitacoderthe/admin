@@ -13,11 +13,11 @@ import Cookies from 'universal-cookie'
 import SelectTag from '../SelectTag/SelectTag'
 import classes2 from './InterviewFilter.module.css'
 import Img from '../../assets/shop.png'
-import { baseURL } from '../../util'
+import { url } from '../../util'
 
 
 const InterviewFilter = (props) => {
-const url=baseURL
+
     const cookies = new Cookies();
     const [View, setView] = useState(false)
     const [View2, setView2] = useState(false)

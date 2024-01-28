@@ -3,7 +3,7 @@ import classes from './InpFile.module.css';
 import { toast } from 'react-toastify';
 
 const InpFile = (props) => {
-
+ 
     const [file, setFile] = useState('')
 
     function changeFile(e) {
@@ -24,7 +24,7 @@ const InpFile = (props) => {
     return (
         <React.Fragment>
             <div className={classes.container}>
-                <input className={classes.input} required={props?.required}  value={file}  onChange={changeFile} type="file" id={props?.id} accept={props.accept} />
+                <input  className={classes.input} required={props?.required}  value={file}  onChange={changeFile} type="file" id={props?.id} accept={props.accept} />
                 <label htmlFor={props.id} className={classes.label}>
                     <span>Choose</span>
                     <span>{props.label == ''? 'File' :props.label}</span>

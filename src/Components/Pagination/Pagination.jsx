@@ -11,8 +11,6 @@ const Pagination = (props) => {
     const limit = props.limit;
     const last_page = count / limit 
 
-    console.log('our total', count);
-
     const [page, setPage] = useState(1)
     const [isActive, setActive] = useState(1)
 

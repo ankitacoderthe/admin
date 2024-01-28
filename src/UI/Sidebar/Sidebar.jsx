@@ -15,6 +15,7 @@ import Cookies from 'universal-cookie'
 import { useEffect, useState } from 'react'
 import { RxCross2 } from "react-icons/rx";
 import PendingIcon from "../../Components/PendingIcon/PendingIcon"
+import React from 'react'
 import { baseURL } from '../../util'
 const Sidebar = (props) => {
   const location = useLocation();

@@ -8,9 +8,10 @@ import { useNavigate } from 'react-router-dom'
 import LabeledSelect from "../LabeledSelect/LabeledSelect"
 import LabeledInput from '../LabeledInput/LabeledInput'
 import moment from 'moment'
-import { baseURL } from '../../util'
+import { url } from '../../util'
 const IncrementModal = (props) => {
     const navigate = useNavigate()
+    
     const cookies = new Cookies()
     const token = cookies.get('admin_token')
     const headers = { "Authorization": "Bearer " + token }
@@ -29,7 +30,7 @@ const IncrementModal = (props) => {
 
 
     const add = () => {
-        axios.post(baseURL + "api/incrementSalary", {
+        axios.post(url + "api/incrementSalary", {
             employee_id: props.Obj.id,
             amount: increment,
             type: type,
@@ -37,6 +38,7 @@ const IncrementModal = (props) => {
         }, { headers }).then((response) => {
             if (response.status === 200) {
                 cancel()
+                props.func()
             }
         })
     }
@@ -46,7 +48,6 @@ const IncrementModal = (props) => {
         closeHandler()
         // window.location.reload(false)
     }
-    console.log(props.Obj)
     return (
         <Modal wd={'470px'} isModal={modal} >
             <div className={classes.modal_header}>

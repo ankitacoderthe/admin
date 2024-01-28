@@ -27,3 +27,10 @@
   background: white;
   left: 7px;
 }
+
+
+
+
+.new_select_div select{
+  width: max-content !important;
+}
